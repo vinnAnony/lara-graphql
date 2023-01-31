@@ -17,10 +17,10 @@ class DocumentFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->firstName() . ' ' . ['Resume', 'Cover Letter', 'Tax PIN'][rand(0, 2)],
             'description' => $this->faker->text(100),
             'url' => $this->faker->url(),
-            'user_id' => $this->faker->random_int(1, 2),
+            'user_id' => $this->faker->randomNumber(2),
         ];
     }
 }
