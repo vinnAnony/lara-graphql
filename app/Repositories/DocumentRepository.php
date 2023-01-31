@@ -21,7 +21,11 @@ class DocumentRepository implements DocumentRepositoryInterface
     }
     public function deleteDocument($documentId)
     {
-        return Document::destroy($documentId);
+        if (Document::destroy($documentId)) {
+            return [
+                'message' => 'Deleted successfully!'
+            ];
+        }
     }
     public function createDocument(array $documentDetails)
     {
