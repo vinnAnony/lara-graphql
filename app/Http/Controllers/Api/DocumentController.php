@@ -66,6 +66,21 @@ class DocumentController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Document  $document
+     * @return \Illuminate\Http\Response
+     */
+    public function showByUserId(Request $request)
+    {
+        $userId = $request->route('id');
+
+        return response()->json([
+            'data' => $this->documentRepository->getDocumentByUserId($userId)
+        ]);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateDocumentRequest  $request
