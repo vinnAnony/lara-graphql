@@ -79,7 +79,8 @@ return [
                 'documents' => App\GraphQL\Queries\DocumentsQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
+                'CreateDocument' => App\GraphQL\Mutations\Document\CreateDocumentMutation::class,
+                'DeleteDocument' => App\GraphQL\Mutations\Document\DeleteDocumentMutation::class,
             ],
             // The types only available in this schema
             'types' => [

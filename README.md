@@ -2,7 +2,8 @@
 
 ## About Lara-Graphql
 
-This is the a laravel project that implements GraphQL API.
+This is a GraphQL-Powered Laravel API.
+Built with the help of [Laravel GraphQL](https://github.com/rebing/graphql-laravel).
 
 ## Contributors
 
