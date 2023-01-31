@@ -105,9 +105,8 @@ class DocumentController extends Controller
      * @param  Illuminate\Support\Facades\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $documentId)
     {
-        $documentId = $request->route('id');
         return response()->json([
             'data' => $this->documentRepository->deleteDocument($documentId)
         ]);

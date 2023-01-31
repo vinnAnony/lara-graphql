@@ -25,5 +25,5 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('documents/user/{id}', [DocumentController::class, 'showByUserId']);
     Route::post('documents', [DocumentController::class, 'store']);
     Route::put('documents/{id}', [DocumentController::class, 'update']);
-    Route::delete('documents/{id}', [DocumentController::class, 'delete']);
+    Route::delete('documents/{id}', [DocumentController::class, 'destroy']);
 });
