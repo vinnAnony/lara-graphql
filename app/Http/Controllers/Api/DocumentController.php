@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Document;
-use App\Http\Requests\StoreDocumentRequest;
-use App\Http\Requests\UpdateDocumentRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Document\StoreDocumentRequest;
+use App\Http\Requests\Document\UpdateDocumentRequest;
 use App\Repositories\Interfaces\DocumentRepositoryInterface;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Request;
@@ -16,7 +16,7 @@ class DocumentController extends Controller
 
     public function __construct(DocumentRepositoryInterface $documentRepository)
     {
-        $this->$documentRepository = $documentRepository;
+        $this->documentRepository = $documentRepository;
     }
     /**
      * Display a listing of the resource.
@@ -33,7 +33,7 @@ class DocumentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDocumentRequest  $request
+     * @param  \App\Http\Requests\Document\StoreDocumentRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreDocumentRequest $request)
@@ -56,9 +56,8 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Request $request, $documentId)
     {
-        $documentId = $request->route('id');
 
         return response()->json([
             'data' => $this->documentRepository->getDocumentById($documentId)
@@ -71,9 +70,8 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function showByUserId(Request $request)
+    public function showByUserId(Request $request, $userId)
     {
-        $userId = $request->route('id');
 
         return response()->json([
             'data' => $this->documentRepository->getDocumentByUserId($userId)
@@ -83,7 +81,7 @@ class DocumentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDocumentRequest  $request
+     * @param  \App\Http\Requests\Document\UpdateDocumentRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateDocumentRequest $request)

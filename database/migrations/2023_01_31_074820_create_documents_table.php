@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('url');
             $table->foreignId('user_id');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

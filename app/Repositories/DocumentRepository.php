@@ -29,6 +29,6 @@ class DocumentRepository implements DocumentRepositoryInterface
     }
     public function updateDocument($documentId, array $newDetails)
     {
-        Document::whereId($documentId)->update($newDetails);
+        return Document::whereId($documentId)->update($newDetails);
     }
 }
