@@ -39,7 +39,6 @@ class DeleteDocumentMutation extends Mutation
 
     public function resolve($root, $args)
     {
-        $this->documentRepository->deleteDocument($args);
-        return true;
+        return $this->documentRepository->deleteDocument($args);
     }
 }
