@@ -7,18 +7,12 @@
     <title>Me Doc</title>
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-    @vite('resources/css/app.css')
+
+    @vite('resources/js/app.js')
 </head>
 
 <body>
     <div id="app"></div>
-
-    @vite('resources/js/app.js')
 </body>
 
 </html>
