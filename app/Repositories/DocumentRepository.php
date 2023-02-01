@@ -28,6 +28,12 @@ class DocumentRepository implements DocumentRepositoryInterface
     }
     public function createDocument(array $documentDetails)
     {
+        // Upload to local storage
+        $file_name = time() . '.' . $documentDetails['document_file']->getClientOriginalExtension();
+        $file_path = $documentDetails['document_file']->storeAs('documents', $file_name, 'public');
+
+        $documentDetails['url'] = '/storage/' . $file_path;
+
         return Document::create($documentDetails);
     }
     public function updateDocument($documentId, array $newDetails)

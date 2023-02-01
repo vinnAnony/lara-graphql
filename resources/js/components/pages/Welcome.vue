@@ -1,7 +1,13 @@
 <template lang="">
     <div>
-        <div class="flex justify-center items-center h-screen">
+        <div class="flex flex-col justify-center items-center h-screen">
             <h1 class="text-3xl text-purple-600 font-bold">Welcome</h1>
+            <router-link to="/upload">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Upload Document
+                </button>
+            </router-link>
+            
         </div>
     </div>
 </template>
