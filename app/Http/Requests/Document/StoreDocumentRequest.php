@@ -25,8 +25,9 @@ class StoreDocumentRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:100',
-            'description' => 'string|max:500',
-            'url' => 'required|url',
+            'description' => 'string|nullable|max:500',
+            'url' => 'url',
+            'document_file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048',
         ];
     }
 }

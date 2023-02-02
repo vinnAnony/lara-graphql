@@ -38,12 +38,7 @@ class DocumentController extends Controller
      */
     public function store(StoreDocumentRequest $request)
     {
-        $documentDetails = $request->only([
-            'title',
-            'description',
-            'url',
-            'user_id',
-        ]);
+        $documentDetails = $request->all();
 
         return response()->json([
             'data' => $this->documentRepository->createDocument($documentDetails)
