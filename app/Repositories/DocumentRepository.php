@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Document;
 use App\Repositories\Interfaces\DocumentRepositoryInterface;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentRepository implements DocumentRepositoryInterface
 {
@@ -28,13 +30,22 @@ class DocumentRepository implements DocumentRepositoryInterface
     }
     public function createDocument(array $documentDetails)
     {
-        // Upload to local storage
-        $file_name = time() . '.' . $documentDetails['document_file']->getClientOriginalExtension();
-        $file_path = $documentDetails['document_file']->storeAs('documents', $file_name, 'public');
+        try {
+            // Upload to local storage
+            // $file_name = time() . '.' . $documentDetails['document_file']->getClientOriginalExtension();
+            // $file_path = $documentDetails['document_file']->storeAs('documents', $file_name, 'public');
+            // $documentDetails['url'] = '/storage/' . $file_path;
 
-        $documentDetails['url'] = '/storage/' . $file_path;
+            // Upload to AWS S3 Bucket
+            $storagePath = Storage::disk('s3')->put('documents', $documentDetails['document_file'], 'public');
+            if (Storage::disk('s3')->exists($storagePath)) {
+                $documentDetails['url'] = Storage::disk('s3')->url($storagePath);
+            }
 
-        return Document::create($documentDetails);
+            return Document::create($documentDetails);
+        } catch (\Exception $e) {
+            Log::error('Doc upload error: ' . $e->getMessage());
+        }
     }
     public function updateDocument($documentId, array $newDetails)
     {
