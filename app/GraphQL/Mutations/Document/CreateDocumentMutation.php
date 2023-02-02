@@ -37,9 +37,10 @@ class CreateDocumentMutation extends Mutation
                 'name' => 'description',
                 'type' => Type::nonNull(Type::string())
             ],
-            'url' => [
-                'name' => 'url',
-                'type' => Type::nonNull(Type::string())
+            'document_file' => [
+                'name' => 'document_file',
+                'type' => GraphQL::type('Upload'),
+                'rules' => ['required', 'max:2048'],
             ],
             'user_id' => [
                 'name' => 'user_id',

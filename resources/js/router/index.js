@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Welcome from "../components/pages/Welcome.vue";
 import Upload from "../components/pages/Upload.vue";
+import GraphQLUpload from "../components/pages/GraphQLUpload.vue";
 
 const routes = [
     {
@@ -13,6 +14,11 @@ const routes = [
         path: "/upload",
         name: "Upload",
         component: Upload,
+    },
+    {
+        path: "/graphql-upload",
+        name: "GraphQLUpload",
+        component: GraphQLUpload,
     },
 ];
 
