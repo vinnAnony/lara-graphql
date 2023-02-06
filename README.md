@@ -2,7 +2,12 @@
 
 ## About Lara-Graphql
 
-This is the a laravel project that implements GraphQL API.
+This is a GraphQL-Powered Laravel API.
+Built with the help of [Laravel GraphQL](https://github.com/rebing/graphql-laravel).
+
+It is a mini-project that one can use to upload document files to either local storage or AWS S3 bucket.
+
+Front-end built with [Tailwind CSS](https://tailwindcss.com/) and [Vue.js](https://vuejs.org/)
 
 ## Contributors
 
