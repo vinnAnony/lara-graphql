@@ -30,7 +30,7 @@ Run `npm run dev` for Vite to bundle your application's CSS and JavaScript files
 
 ## Contributors
 
-This software is developed and maintained with love by [Vinn Njeru](https://github.com/vinnAnony).
+This software was developed and is maintained with love by [Vinn Njeru](https://github.com/vinnAnony).
 
 ## License
 
