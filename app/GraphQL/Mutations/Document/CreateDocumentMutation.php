@@ -47,6 +47,14 @@ class CreateDocumentMutation extends Mutation
             'user_id' => [
                 'name' => 'user_id',
                 'type' => Type::nonNull(Type::int())
+            ],
+            'upload_local' => [
+                'name' => 'upload_local',
+                'type' => Type::boolean()
+            ],
+            'upload_aws' => [
+                'name' => 'upload_aws',
+                'type' => Type::boolean()
             ]
         ];
     }
