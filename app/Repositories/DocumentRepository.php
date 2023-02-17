@@ -31,15 +31,23 @@ class DocumentRepository implements DocumentRepositoryInterface
     public function createDocument(array $documentDetails)
     {
         try {
-            // Upload to local storage
-            // $file_name = time() . '.' . $documentDetails['document_file']->getClientOriginalExtension();
-            // $file_path = $documentDetails['document_file']->storeAs('documents', $file_name, 'public');
-            // $documentDetails['url'] = '/storage/' . $file_path;
+            if ($documentDetails['upload_local']) {
+                // Upload to local storage
+                $file_name = time() . '.' . $documentDetails['document_file']->getClientOriginalExtension();
+                $file_path = $documentDetails['document_file']->storeAs('documents', $file_name, 'public');
+                $documentDetails['url'] = '/storage/' . $file_path;
+            }
+            if ($documentDetails['upload_aws']) {
+                // Upload to AWS S3 Bucket
+                $storagePath = Storage::disk('s3')->put('documents', $documentDetails['document_file'], 'public');
+                if (Storage::disk('s3')->exists($storagePath)) {
+                    $documentDetails['aws_url'] = Storage::disk('s3')->url($storagePath);
+                    $documentDetails['url'] = $documentDetails['aws_url'];
+                }
+            }
 
-            // Upload to AWS S3 Bucket
-            $storagePath = Storage::disk('s3')->put('documents', $documentDetails['document_file'], 'public');
-            if (Storage::disk('s3')->exists($storagePath)) {
-                $documentDetails['url'] = Storage::disk('s3')->url($storagePath);
+            if ($documentDetails['upload_aws'] && $documentDetails['upload_aws']) {
+                $documentDetails['url'] = $documentDetails['aws_url'];
             }
 
             return Document::create($documentDetails);
