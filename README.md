@@ -9,7 +9,7 @@ Built with the help of [Laravel GraphQL](https://github.com/rebing/graphql-larav
 It is a mini-project that one can use to upload document files to local storage or AWS S3 bucket.
 If you choose to upload to both locations, it will store the AWS url in the database.
 
-Here is a [guide](https://medium.com/@vinn_njeru) on how to upload to configure AWS for Laravel.
+Here is a [guide](https://medium.com/@vinn_njeru) on how to configure AWS for Laravel.
 
 Front-end built with [Tailwind CSS](https://tailwindcss.com/) and [Vue.js](https://vuejs.org/)
 
