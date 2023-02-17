@@ -1,4 +1,5 @@
 <p  align="center"><a  href="https://vinnjeru.com"  target="_blank"><img  src="https://vinnjeru.com/images/vinn-logo.png"  width="100"  alt="Vinn Logo"></a></p>
+
 ## About Lara-Graphql
 
 This is a GraphQL-Powered Laravel API.
