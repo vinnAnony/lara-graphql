@@ -25,6 +25,7 @@ Don't forget to set up your database and AWS S3 credentials in `.env` file
 ## Run
 
 Run `php artisan serve` to run Laravel app in development environment.
+
 Run `npm run dev` for Vite to bundle your application's CSS and JavaScript files into production ready assets.
 
 ## Contributors
