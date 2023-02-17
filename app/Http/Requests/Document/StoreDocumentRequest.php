@@ -27,7 +27,7 @@ class StoreDocumentRequest extends FormRequest
             'title' => 'required|string|max:100',
             'description' => 'string|nullable|max:500',
             'url' => 'url',
-            'document_file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048',
+            'document_file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlsx,pdf|max:2048',
         ];
     }
 }
